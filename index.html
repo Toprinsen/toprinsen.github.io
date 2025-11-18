@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Tristan Oprinsen - Portfolio</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#accueil">Home</a></li>
+            <li><a href="#competences">Skills</a></li>
+            <li><a href="#projets">Projects</a></li>
+            <li><a href="#apropos">About me</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" class="cv-link" onclick="openCVModal(event)">View my CV</a></li>
+        </ul>
+    </nav>
+
+    <!-- Modal CV -->
+    <div class="cv-modal" id="cvModal">
+        <div class="cv-modal-content">
+            <div class="cv-modal-header">
+                <h3>My Resume</h3>
+                <button class="cv-close-btn" onclick="closeCVModal()">×</button>
+            </div>
+            <div class="cv-viewer">
+                <iframe src="assets/CV.pdf" type="application/pdf"></iframe>
+            </div>
+            <a href="assets/CV.pdf" download class="cv-download-btn">📥 Download CV</a>
+        </div>
+    </div>
+
+    <section class="hero" id="accueil">
+        <div class="profile-photo"></div>
+        <h1 class="name">OPRINSEN Tristan</h1>
+        <p class="subtitle">Full-Stack Dev • Designer • Creative</p>
+        <p class="description">
+            Passionate about creating outstanding digital experiences.
+            I turn ideas into elegant and high-performance digital products.
+        </p>
+        <div class="cta-buttons">
+            <a href="#projets" class="cta-btn primary">My Projects</a>
+            <a href="#contact" class="cta-btn secondary">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="competences">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">PostgreSQL</span>
+                    <span class="skill-level">★★★★★</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%"></div>
+                </div>
+                <p class="skill-description">Advanced SQL queries, indexing strategies, performance tuning, and relational database design.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">HTML/CSS/JS</span>
+                    <span class="skill-level">★★★★☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+                <p class="skill-description">Responsive web design, modern JavaScript (ES6+), DOM manipulation, and frontend integration.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">C#</span>
+                    <span class="skill-level">★★★★☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+                <p class="skill-description">Object-oriented programming, .NET framework, and backend application development.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Figma</span>
+                    <span class="skill-level">★★★★☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+                <p class="skill-description">UI/UX design, prototyping, responsive interface design, and modern design standards.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">WordPress</span>
+                    <span class="skill-level">★★★★☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+                <p class="skill-description">Theme customization, plugin integration, SEO optimization, and content management.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">English</span>
+                    <span class="skill-level">★★★★☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+                <p class="skill-description">Fluent conversational English, technical documentation reading and writing, professional communication.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Python</span>
+                    <span class="skill-level">★★★☆☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 60%"></div>
+                </div>
+                <p class="skill-description">Scripting, data processing, automation, and backend development with Python frameworks.</p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-header">
+                    <span class="skill-name">Node.js</span>
+                    <span class="skill-level">★★★★☆</span>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%"></div>
+                </div>
+                <p class="skill-description">Backend development, API integration, Express.js, and full-stack JavaScript applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projets">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/assets/OSI2024.png" alt="">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Laser Precision Training System</h3>
+                    <p class="project-description">
+                        Developed a laser-based shooting training system using Raspberry Pi and camera technology. 
+                        Enabled athletes to track performance remotely via mobile app. Won regional competition awarded by Nobel Laureate Pierre Agostini.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Raspberry Pi</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Mobile App</span>
+                    </div>
+                    <a id="butOSI2024" href="https://www.lycee-louis-lachenal.fr/index.php/fr/olympiades-des-sciences-de-lingenieur-2024-concours-academique-des-eleves-de-sti2d-du-lycee">See more</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💼</div>
+                <div class="project-content">
+                    <h3 class="project-title">Full-Stack Web Applications</h3>
+                    <p class="project-description">
+                        Developed multiple full-stack web applications using modern technologies. 
+                        Integrated APIs, managed databases with PostgreSQL, and implemented responsive frontends with HTML, CSS, and JavaScript.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">PostgreSQL</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🎨</div>
+                <div class="project-content">
+                    <h3 class="project-title">UI/UX Design Projects</h3>
+                    <p class="project-description">
+                        Designed responsive website interfaces and user experiences using Figma. 
+                        Created modern, accessible interfaces following best practices in UI/UX design and ensuring optimal user experience.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Figma</span>
+                        <span class="project-tag">UI/UX</span>
+                        <span class="project-tag">Prototyping</span>
+                        <span class="project-tag">Design Systems</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <h3 class="project-title">WordPress Solutions</h3>
+                    <p class="project-description">
+                        Built and maintained WordPress websites with custom theme development, plugin integration, and SEO optimization. 
+                        Delivered professional, scalable solutions for various clients.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">WordPress</span>
+                        <span class="project-tag">PHP</span>
+                        <span class="project-tag">SEO</span>
+                        <span class="project-tag">CMS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apropos">
+        <h2>About Me</h2>
+        <div id="text-apropos">
+            <p>
+                Hi! I'm Tristan Oprinsen, a passionate computer science student currently in my second year of a Technical Bachelor's Degree (BUT Informatique) at the University of Savoie Mont-Blanc in Annecy.
+                Curious and motivated, I enjoy turning ideas into interactive and efficient digital experiences. I have strong skills in both frontend and backend development, especially with HTML, CSS, JavaScript, Node.js and PostgreSQL. I also like working on UI/UX design using Figma to create interfaces that are both modern and easy to use.
+            </p>
+            <br>
+            <p>
+                I've developed several web applications and worked on team projects that involved full-stack integration, database management and version control with Git. I like challenges that mix creativity and problem-solving.
+            </p>
+            <br>
+            <p>
+                Outside of programming, I'm a volleyball player and a fan of FPS games like Valorant. These hobbies have helped me improve my teamwork, focus and adaptability.
+            </p>
+            <br>
+            <p>
+                I'm now looking for an internship or a professional opportunity as a Web Developer or Full Stack Developer, where I can put my skills into practice, learn from real projects and contribute to a dynamic team.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <p class="contact-intro">
+                I'm currently seeking opportunities as a Web Developer or Full Stack Developer. 
+                Feel free to reach out for collaborations or projects.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">
+                            <a href="mailto:tristan.oprinsen@etu.univ-smb.fr">tristanoprinsenlachenal@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">
+                            <a href="tel:+33651627051">+33 6 51 62 70 51</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-info">
+                        <div class="contact-label">Location</div>
+                        <div class="contact-value">Thônes, France</div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-info">
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">
+                            <a href="https://www.linkedin.com/in/tristan-oprinsen-14862236b/" target="_blank">Tristan Oprinsen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="main.js" defer></script>
+</body>
+</html>

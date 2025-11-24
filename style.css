@@ -288,14 +288,15 @@ section h2 {
     line-height: 1.6;
 }
 
-/* Projects Section */
+/* Projects Section - REMPLACE la section existante */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 40px;
     max-width: 1200px;
     width: 100%;
     margin-top: 20px;
+    justify-items: center;
 }
 
 .project-card {
@@ -303,22 +304,41 @@ section h2 {
     border: 1px solid rgba(25, 118, 210, 0.2);
     border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 450px;
+    width: 100%;
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-card.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    overflow: hidden;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-8px) scale(1);
     box-shadow: 0 16px 48px rgba(33, 150, 243, 0.3);
     border-color: rgba(33, 150, 243, 0.5);
 }
 
+.project-card.hidden:hover {
+    transform: scale(0.9);
+    box-shadow: none;
+}
+
 .project-image {
     width: 100%;
-    height: 200px;
+    height: 40%;
     background: linear-gradient(135deg, rgba(25, 118, 210, 0.3), rgba(33, 150, 243, 0.3));
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 48px;
 }
 
@@ -337,6 +357,44 @@ section h2 {
     font-weight: 700;
     color: #64b5f6;
     margin-bottom: 15px;
+}
+
+.project-filters-container {
+    display: flex; /* Affiche les filtres en ligne */
+    gap: 15px; /* Espace entre les filtres */
+    margin-bottom: 40px; /* Marge pour séparer des projets */
+    flex-wrap: wrap; /* Permet le retour à la ligne sur mobile */
+    justify-content: center; /* Centre les filtres */
+    max-width: 1200px;
+    width: 100%;
+}
+
+.project-filter-tag {
+    /* Style pour ressembler aux tags existants, mais plus grand */
+    padding: 10px 20px;
+    background: rgba(25, 118, 210, 0.2);
+    border: 1px solid rgba(25, 118, 210, 0.3);
+    border-radius: 25px;
+    font-size: 14px; /* Taille de police plus grande */
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: capitalize;
+}
+
+.project-filter-tag:hover {
+    background: rgba(33, 150, 243, 0.4);
+    border-color: #64b5f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+}
+
+/* Style initial pour le filtre actif (à utiliser plus tard en JS) */
+.project-filter-tag.active {
+    background: linear-gradient(135deg, rgba(25, 118, 210, 1), rgba(33, 150, 243, 1));
+    border-color: #fff;
+    color: #fff;
 }
 
 .project-description {

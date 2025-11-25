@@ -15,6 +15,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Navigation Desktop */
 nav {
     position: fixed;
     top: 0;
@@ -81,6 +82,29 @@ nav ul li a:hover {
 
 nav ul li a:hover::before {
     transform: translateX(-50%) scaleX(1);
+}
+
+/* Bouton hamburger (caché par défaut sur desktop) */
+.nav-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(25, 118, 210, 0.2);
+    border: 1px solid rgba(25, 118, 210, 0.3);
+    color: #64b5f6;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle:hover {
+    background: rgba(25, 118, 210, 0.3);
+    border-color: #64b5f6;
 }
 
 .hero {
@@ -288,7 +312,7 @@ section h2 {
     line-height: 1.6;
 }
 
-/* Projects Section - REMPLACE la section existante */
+/* Projects Section */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -337,7 +361,7 @@ section h2 {
 
 .project-image {
     width: 100%;
-    height: 40%;
+    height: 250px;
     background: linear-gradient(135deg, rgba(25, 118, 210, 0.3), rgba(33, 150, 243, 0.3));
     font-size: 48px;
 }
@@ -360,22 +384,21 @@ section h2 {
 }
 
 .project-filters-container {
-    display: flex; /* Affiche les filtres en ligne */
-    gap: 15px; /* Espace entre les filtres */
-    margin-bottom: 40px; /* Marge pour séparer des projets */
-    flex-wrap: wrap; /* Permet le retour à la ligne sur mobile */
-    justify-content: center; /* Centre les filtres */
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 1200px;
     width: 100%;
 }
 
 .project-filter-tag {
-    /* Style pour ressembler aux tags existants, mais plus grand */
     padding: 10px 20px;
     background: rgba(25, 118, 210, 0.2);
     border: 1px solid rgba(25, 118, 210, 0.3);
     border-radius: 25px;
-    font-size: 14px; /* Taille de police plus grande */
+    font-size: 14px;
     color: #fff;
     font-weight: 600;
     cursor: pointer;
@@ -390,7 +413,6 @@ section h2 {
     box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
 }
 
-/* Style initial pour le filtre actif (à utiliser plus tard en JS) */
 .project-filter-tag.active {
     background: linear-gradient(135deg, rgba(25, 118, 210, 1), rgba(33, 150, 243, 1));
     border-color: #fff;
@@ -652,75 +674,160 @@ section h2 {
     to { opacity: 1; }
 }
 
+/* Media Queries Mobile */
 @media (max-width: 768px) {
-    .hero {
-        margin-top: 45px;
-        margin-bottom: -10px;
+    /* Afficher le bouton hamburger */
+    .nav-toggle {
+        display: block;
     }
-
+    
+    /* Cacher le menu par défaut */
+    nav {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    nav.active {
+        transform: translateY(0);
+    }
+    
     nav ul {
-        flex-wrap: wrap;
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
-
+    
     nav ul li {
-        flex: 1 1 50%;
+        flex: 1 1 100%;
+        width: 100%;
     }
-
+    
     nav ul li a {
         padding: 18px 20px;
         font-size: 14px;
-        border-right: 1px solid rgba(25, 118, 210, 0.1);
+        border-right: none;
         border-bottom: 1px solid rgba(25, 118, 210, 0.1);
     }
-
-    nav ul li:nth-child(2n) a {
-        border-right: none;
-    }
-
-    nav ul li:nth-last-child(-n+2) a {
+    
+    nav ul li:last-child a {
         border-bottom: none;
     }
-
+    
+    .hero {
+        padding-top: 80px;
+        min-height: calc(100vh - 60px);
+    }
+    
     .name {
-        font-size: 48px;
+        font-size: 42px;
     }
-
+    
     .subtitle {
-        font-size: 18px;
-    }
-
-    .description {
         font-size: 16px;
     }
-
-    .profile-photo {
-        width: 180px;
-        height: 180px;
+    
+    .description {
+        font-size: 15px;
+        padding: 0 15px;
     }
-
+    
+    .profile-photo {
+        width: 160px;
+        height: 160px;
+    }
+    
     .cta-buttons {
         flex-direction: column;
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
     }
-
+    
     .cta-btn {
         width: 100%;
     }
-
-    .skills-grid, .projects-grid, .contact-grid {
-        grid-template-columns: 1fr;
+    
+    section {
+        padding: 60px 15px;
+        min-height: auto;
     }
-
+    
     section h2 {
-        font-size: 36px;
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+    
+    .skills-grid {
+        /* Remplacer grid-template-columns: 1fr; par les propriétés de scroll horizontal */
+        display: flex; /* Utiliser flexbox pour le défilement horizontal */
+        flex-wrap: nowrap; /* Empêcher le retour à la ligne */
+        overflow-x: auto; /* Permettre le défilement horizontal */
+        overflow-y: hidden; /* Cacher la barre de défilement verticale */
+        gap: 20px; /* Conserver l'espacement */
+        max-width: 100%; /* S'assurer qu'il prend toute la largeur */
+        padding: 0 15px; /* Ajouter un padding pour les bords du carrousel */
+        scroll-snap-type: x mandatory; /* Améliorer l'expérience utilisateur */
+        -webkit-overflow-scrolling: touch; /* Amélioration du défilement sur iOS */
     }
 
+    .skill-card {
+        flex: 0 0 80vw; /* Chaque carte prend 80% de la largeur de la vue (ajustable) */
+        max-width: 300px; /* Limiter la largeur maximale pour ne pas être trop large sur tablette */
+        scroll-snap-align: start; /* Alignement pour le scroll-snap */
+    }
+    
+    .projects-grid {
+        /* Remplacer grid-template-columns: 1fr; par les propriétés de scroll horizontal */
+        display: flex; /* Utiliser flexbox pour le défilement horizontal */
+        flex-wrap: nowrap; /* Empêcher le retour à la ligne */
+        overflow-x: auto; /* Permettre le défilement horizontal */
+        overflow-y: hidden; /* Cacher la barre de défilement verticale */
+        gap: 25px; /* Conserver l'espacement entre les cartes */
+        max-width: 100%; /* S'assurer qu'il prend toute la largeur */
+        padding: 0 15px; /* Ajouter un padding pour les bords du carrousel */
+        scroll-snap-type: x mandatory; /* Améliorer l'expérience utilisateur */
+        -webkit-overflow-scrolling: touch; /* Amélioration du défilement sur iOS */
+    }
+
+    .project-card {
+        flex: 0 0 85vw; /* Chaque carte prend 85% de la largeur de la vue */
+        max-width: 400px; /* Limiter la largeur maximale pour les tablettes */
+        scroll-snap-align: start; /* Alignement pour le scroll-snap */
+    }
+
+    /* Important: retirer le style qui masque les projets pour le filtre */
+    .project-card.hidden {
+        display: none !important; /* On gère la visibilité des cartes pour les filtres */
+        height: auto;
+        margin: initial;
+        padding: initial;
+        border: initial;
+        overflow: initial;
+        transform: none;
+        opacity: 1; 
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .project-content {
+        padding: 20px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    #text-apropos {
+        width: 90vw;
+        font-size: 15px;
+    }
+    
     .cv-modal-content {
         padding: 20px;
         max-width: 95vw;
     }
-
+    
     .cv-viewer iframe {
         min-height: 400px;
     }
